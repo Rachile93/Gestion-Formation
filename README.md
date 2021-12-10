@@ -11,3 +11,5 @@ donc la creation d'une formation implique l'existence d'un formateur(pas de vér
 
 possibilé d'editer un formateur,
 possibilité de supprimer un formateur
+
+problème rencontré : lorque j'ajoute une formation et que je l'associe à un formateur. il edite la ligne correspondant au formateur dans la table formation.
