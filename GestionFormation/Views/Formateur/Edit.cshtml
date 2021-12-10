@@ -1,0 +1,72 @@
+@model FormateurViewModel
+@{
+    ViewData["Title"] = "Créer un Enseignant";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form action="@Url.Action("Edit")"  method="post">
+    <div class="form-group">
+        <label asp-for="code">Code</label>
+        <input type="text" class="form-control" asp-for="code" placeholder="Entrer le code">
+        <span asp-validation-for="code" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Nom">Nom</label>
+        <input type="text" class="form-control" asp-for="Nom" placeholder="Entrer le Nom">
+        <span asp-validation-for="Nom" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Prenom">Prenom</label>
+        <input type="text" class="form-control" asp-for="Prenom" placeholder="Entrer le Prenom">
+        <span asp-validation-for="Prenom" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Adress">Adress</label>
+        <input type="text" class="form-control" asp-for="Adress" placeholder="Entrer une adresse">
+    </div>
+    <div class="form-group">
+        <label asp-for="Tel">Tel</label>
+        <input type="text" class="form-control" asp-for="Tel" placeholder="Entrer le tel">
+    </div>
+    <button type="button" onclick="history.go(-1)" class="btn btn-secondary">Retour</button>
+    <button type="submit" class="btn btn-primary">Sauvegarder</button>
+    @* <button type="button" onclick="sendForm()" class="btn btn-primary">Sauvegarder</button> *@
+</form>
+
+<script>
+    // function sendForm(){
+    //     $.ajax({
+    //         data: $("#pcrTestForm").serialize(),
+    //         method: 'POST',
+    //         beforeSend: function () {
+    //             // $("#loading").toggle();
+    //             $("#loading").show();
+    //             // $("#loading").hide();
+    //         },
+    //         success: function (data) {
+    //             console.log(data);
+    //         },
+    //         error: function(jqXHR, exception) {
+    //             if (jqXHR.status === 0) {
+    //                 alert('Not connect.\n Verify Network.');
+    //             } else if (jqXHR.status == 404) {
+    //                 alert('Requested page not found. [404]');
+    //             } else if (jqXHR.status == 500) {
+    //                 alert('Internal Server Error [500].');
+    //             } else if (exception === 'parsererror') {
+    //                 alert('Requested JSON parse failed.');
+    //             } else if (exception === 'timeout') {
+    //                 alert('Time out error.');
+    //             } else if (exception === 'abort') {
+    //                 alert('Ajax request aborted.');
+    //             } else {
+    //                 alert('Uncaught Error.\n' + jqXHR.responseText);
+    //             }
+    //         },
+    //         complete: function () {
+    //             $("#loading").hide();
+    //         }
+    //     });
+    // }
+</script>

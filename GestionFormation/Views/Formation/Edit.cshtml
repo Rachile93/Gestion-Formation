@@ -1,0 +1,81 @@
+@model FormationViewModel
+@{
+    ViewData["Title"] = "Créer un Enseignant";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form action="@Url.Action("Edit")" method="post">
+    <div class="form-group">
+        <label asp-for="code">Code</label>
+        <input type="text" class="form-control" asp-for="code" placeholder="Entrer le code">
+        <span asp-validation-for="code" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Categorie">Categorie</label>
+        <input type="text" class="form-control" asp-for="Categorie" placeholder="Entrer une categorie">
+        <span asp-validation-for="Categorie" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="module">Module</label>
+        <input type="text" class="form-control" asp-for="module" placeholder="Entrer le titre de module">
+    </div>
+    <div class="form-group">
+        <label asp-for="Nombre_de_periode">Nombre de période</label>
+        <input type="text" class="form-control" asp-for="Nombre_de_periode" placeholder="Entrer le nombre de période">
+    </div>
+    <div class="form-group">
+            <label asp-for="Date_debut">Date de debut</label>
+            <input type="date" class="form-control" asp-for="Date_debut">
+        </div>
+    <div class="form-group">
+        <label asp-for="Date_fin">Date de fin</label>
+        <input type="date" class="form-control" asp-for="Date_fin">
+    </div>
+    <div class="form-group">
+            <label asp-for="FormateurId">Dispensé par</label>
+        <select class="form-control" asp-for="FormateurId" asp-items="Model.SliFormateurs">
+        <option value="">-- Choisir un formateur --</option>
+        </select>
+    </div>
+    <button type="button" onclick="history.go(-1)" class="btn btn-secondary">Retour</button>
+    <button type="submit" class="btn btn-primary">Sauvegarder</button>
+    @* <button type="button" onclick="sendForm()" class="btn btn-primary">Sauvegarder</button> *@
+</form>
+
+<script>
+    // function sendForm(){
+    //     $.ajax({
+    //         data: $("#pcrTestForm").serialize(),
+    //         method: 'POST',
+    //         beforeSend: function () {
+    //             // $("#loading").toggle();
+    //             $("#loading").show();
+    //             // $("#loading").hide();
+    //         },
+    //         success: function (data) {
+    //             console.log(data);
+    //         },
+    //         error: function(jqXHR, exception) {
+    //             if (jqXHR.status === 0) {
+    //                 alert('Not connect.\n Verify Network.');
+    //             } else if (jqXHR.status == 404) {
+    //                 alert('Requested page not found. [404]');
+    //             } else if (jqXHR.status == 500) {
+    //                 alert('Internal Server Error [500].');
+    //             } else if (exception === 'parsererror') {
+    //                 alert('Requested JSON parse failed.');
+    //             } else if (exception === 'timeout') {
+    //                 alert('Time out error.');
+    //             } else if (exception === 'abort') {
+    //                 alert('Ajax request aborted.');
+    //             } else {
+    //                 alert('Uncaught Error.\n' + jqXHR.responseText);
+    //             }
+    //         },
+    //         complete: function () {
+    //             $("#loading").hide();
+    //         }
+    //     });
+    // }
+</script>

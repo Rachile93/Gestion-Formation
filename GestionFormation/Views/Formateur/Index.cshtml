@@ -1,0 +1,48 @@
+@{
+    ViewData["Title"] = "Liste d'enseignants";
+}
+@model List<FormateurViewModel>
+
+<h2>@ViewData["Title"]</h2>
+
+
+<ul class="nav justify-content-end">
+    <li class="nav-item">
+        <a href="@Url.Action("Create")" class="nav-link active" role="button" aria-pressed="true">Create Formateur</a>
+    </li>
+</ul>
+
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Code</th>
+        <th scope="col">Nom</th>
+        <th scope="col">Prenom</th>
+        <th scope="col">Adress</th>
+        <th scope="col">Tel</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.code</td>
+            <td>@item.Nom</td>
+            <td>@item.Prenom</td>
+            <td>@item.Adress</td>
+            <td>@item.Tel</td>
+            <td>
+                <a href="@Url.Action("Detail", new { id = item.Id })" class="btn btn-secondary" role="button" aria-pressed="true">Detail</a>
+            </td>
+             <td>
+                <a href="@Url.Action("Edit", new { id = item.Id })" class="btn btn-secondary" role="button" aria-pressed="true">Modifier</a>
+            </td>
+            <td>
+                <a href="@Url.Action("Delete", new { id = item.Id })" class="btn btn-secondary btn-danger" role="button" aria-pressed="true">Supprimer</a>
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>
